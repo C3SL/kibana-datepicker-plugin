@@ -10,7 +10,7 @@ Using this plugin it is possible to select date by typing on an input or by sele
 ```bash
 cd KIBANA_HOME/plugins
 git clone https://github.com/CristianWeiland/kibana-datepicker-plugin.git
-vim KIBANA_HOME/plugins/kibana-datepicker-plugin/package.js //set version to match kibana version
+vim KIBANA_HOME/plugins/kibana-datepicker-plugin/package.json //set version to match kibana version
 ```
 
 # Uninstall
