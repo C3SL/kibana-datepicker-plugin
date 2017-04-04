@@ -1,13 +1,12 @@
 import _ from 'lodash';
 import dateMath from '@elastic/datemath';
 import moment from 'moment';
-import 'ui/timepicker/quick_ranges';
-import 'ui/timepicker/time_units';
 import uiModules from 'ui/modules';
+import 'plugins/kibana-datepicker-plugin/datepickerLanguages';
 
 const module = uiModules.get('kibana/kibana-datepicker-plugin', ['kibana']);
 
-module.controller('KbnDatePickerController', function ($scope, $rootScope, $timeout) {
+module.controller('KbnDatePickerController', function (datepickerPluginLocales, $scope, $rootScope, $timeout, $locale) {
     $scope.format = 'MMMM Do YYYY, HH:mm:ss.SSS';
     var absoluteApplied = false;
 
@@ -65,4 +64,33 @@ module.controller('KbnDatePickerController', function ($scope, $rootScope, $time
             absolute_to: dateMath.parse(timeArray[1], true)
         }
     }
+
+    $scope.translations = {
+        'en': {
+            'to': 'To'
+            , 'go': 'Go'
+            , 'from': 'From'
+            , 'set_to_now': 'Set To Now'
+            , 'invalid_date': 'Invalid Date'
+            , 'must_occur_before': 'must occur before'
+        }, 'pt-br': {
+            'to': 'Até'
+            , 'go': 'Aplicar'
+            , 'from': 'De'
+            , 'set_to_now': 'Mudar Para Agora'
+            , 'invalid_date': 'Data Inválida'
+            , 'must_occur_before': 'deve ser antes de'
+        }
+    }
+
+    $scope.language = $scope.translations['en'];
+
+    var locales = datepickerPluginLocales;
+    var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
+
+    $scope.$watch('vis.params.language', function(newValue, oldValue) {
+        $scope.language = $scope.translations[newValue];
+        // Update angular $locale to the correct language. This might change things you dont want to!
+        angular.copy(locales[newValue], $locale)
+    });
 });
