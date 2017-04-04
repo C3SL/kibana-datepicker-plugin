@@ -21,6 +21,7 @@ require('ui/registry/vis_types').register(DatepickerVisProvider);
                     submit_right: false,
                     hide_input: false,
                     hide_calendar: false,
+                    language: 'en'
                 }
             },
             requiresSearch: false
