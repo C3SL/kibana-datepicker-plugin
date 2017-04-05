@@ -1,6 +1,8 @@
 import uiModules from 'ui/modules';
 let module = uiModules.get('kibana');
 
+var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
+
 module.constant('datepickerPluginLocales', {
     'pt-br': {
         "DATETIME_FORMATS": {

@@ -83,14 +83,17 @@ module.controller('KbnDatePickerController', function (datepickerPluginLocales, 
         }
     }
 
-    $scope.language = $scope.translations['en'];
-
     var locales = datepickerPluginLocales;
     var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
+
+    // Initialize variables
+    $scope.language = $scope.translations['en'];
+    angular.copy(locales['en'], $locale);
 
     $scope.$watch('vis.params.language', function(newValue, oldValue) {
         $scope.language = $scope.translations[newValue];
         // Update angular $locale to the correct language. This might change things you dont want to!
-        angular.copy(locales[newValue], $locale)
+        angular.copy(locales[newValue], $locale);
+        $scope.time.absolute_from = new Date($scope.time.absolute_from);
     });
 });
