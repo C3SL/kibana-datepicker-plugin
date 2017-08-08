@@ -1,13 +1,14 @@
-import 'plugins/kibana-datepicker-plugin/datepicker.less'
+import 'plugins/kibana-datepicker-plugin/datepicker.less';
 import 'plugins/kibana-datepicker-plugin/datepickerController';
-import TemplateVisTypeTemplateVisTypeProvider from 'ui/template_vis_type/template_vis_type';
+import { TemplateVisTypeProvider } from 'ui/template_vis_type/template_vis_type';
 import visTemplate from 'plugins/kibana-datepicker-plugin/datepicker.html';
 import optionsTemplate from 'plugins/kibana-datepicker-plugin/datepickerOptions.html';
+import { VisTypesRegistryProvider } from 'ui/registry/vis_types';
 
-require('ui/registry/vis_types').register(DatepickerVisProvider);
+VisTypesRegistryProvider.register(DatepickerVisProvider);
 
     function DatepickerVisProvider(Private) {
-        const TemplateVisType = Private(TemplateVisTypeTemplateVisTypeProvider);
+        const TemplateVisType = Private(TemplateVisTypeProvider);
 
         return new TemplateVisType({
             name: 'time',

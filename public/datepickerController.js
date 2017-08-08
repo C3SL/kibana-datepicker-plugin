@@ -1,12 +1,13 @@
 import _ from 'lodash';
 import dateMath from '@elastic/datemath';
 import moment from 'moment';
-import uiModules from 'ui/modules';
+import { uiModules } from 'ui/modules';
 import 'plugins/kibana-datepicker-plugin/datepickerLanguages';
 
 const module = uiModules.get('kibana/kibana-datepicker-plugin', ['kibana']);
 
 module.controller('KbnDatePickerController', function (datepickerPluginLocales, $scope, $rootScope, $timeout, $locale) {
+
     $scope.format = 'MMMM Do YYYY, HH:mm:ss.SSS';
     var absoluteApplied = false;
 
