@@ -3,7 +3,7 @@
     <div class="tab-content">
         <div class="tab-pane active">
             <form name="absoluteTime" ng-submit="applyAbsolute()">
-                <div class="kbn-timepicker-section">
+                <div class="kbn-timepicker-section kbn-inside-dashboard">
                     <div>
                         <label class="small">{{language['from']}}: <span ng-show="!time.absolute_from"><i>{{language['invalid_date']}}</i></span>
                         </label>
@@ -14,7 +14,7 @@
                     </div>
                 </div>
 
-                <div class="kbn-timepicker-section">
+                <div class="kbn-timepicker-section kbn-inside-dashboard">
                     <div>
                         <label class="small">{{language['to']}}:
                             <a class="label label-default" ng-click="setToNow()">{{language['set_to_now']}}</a>

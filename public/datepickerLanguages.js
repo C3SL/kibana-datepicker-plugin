@@ -108,7 +108,7 @@ module.constant('datepickerPluginLocales', {
         },
         "id": "pt-br",
         "pluralCat": function(n, opt_precision) {    if (n >= 0 && n <= 2 && n != 2) {        return PLURAL_CATEGORY.ONE;    }    return PLURAL_CATEGORY.OTHER;}
-    }, en: {
+    }, "en-us": {
         "DATETIME_FORMATS": {
             "AMPMS": [
                 "AM",
